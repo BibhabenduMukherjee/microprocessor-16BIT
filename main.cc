@@ -16,6 +16,10 @@ struct Mem{
             Data[i] = 0;
         }
     }
+    //an overloaded operator->[] returns readonly access to the data Of Data[address]
+    Byte operator[]( const u32 Address) const {
+      return Data[Address];
+    }
 };
 
 struct CPU
@@ -45,6 +49,19 @@ struct CPU
       memory.Init();
 
     }
+    Byte Fetch(u32 &Cycles , Mem& mem){
+     Byte Data =  mem[PC];
+     PC++;
+     Cycles--;
+    }
+
+    // instruction opcode and the data(operand)
+    void Execute(u32 Cycles,Mem &mem){
+       while(Cycles > 0){
+      // fetch the ins from pointed by PC
+       Byte Ins =  Fetch(Cycles , mem);
+       }
+    }
 };
 
 
@@ -52,4 +69,5 @@ int main(){
   Mem mem;
   CPU cpu;
   cpu.Reset(mem);
+  cpu.Execute(2 , mem);
 }
