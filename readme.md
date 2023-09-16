@@ -24,6 +24,16 @@ Process Status Register
 ```
 
 
+## Start with a basic inline program 
+
+```c++
+  // start with this 
+  mem[0xFFFC] = CPU::INS_LDA_IM;
+  mem[0xFFFD] = 0x42;
+
+```
+we are able to visualize the main stack and loaded inline instruction
+
 ## Authors
 
 - [@Bibhabendu Mukherjee](https://github.com/BibhabenduMukherjee)

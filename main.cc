@@ -4,20 +4,25 @@ ALL HAPPENS FOR THE BEST IF WE OBSERVED EVERYTHING IN TREMS FOR ENERGY
 initial main.cc startup for the simulation
 
 */
+#include <iostream>
  using Byte = unsigned char;
  using Word = unsigned short;
  using u32 = unsigned int;
 
 struct Mem{
-    static constexpr u32 MAX_MEM = 1024*64;
+    static const  u32 MAX_MEM = 1024*64;
     Byte  Data[MAX_MEM];
     void Init(){
-        for( u32 i=0; i < MAX_MEM; i++ ){
+        for( ::u32 i=0; i < MAX_MEM; i++ ){
             Data[i] = 0;
         }
     }
     //an overloaded operator->[] returns readonly access to the data Of Data[address]
-    Byte operator[]( const u32 Address) const {
+    Byte operator[]( const ::u32 Address) const {
+      return Data[Address];
+    }
+
+    Byte& operator[](u32 Address){
       return Data[Address];
     }
 };
@@ -28,7 +33,7 @@ struct CPU
    
     Word PC;
     Word SP;
-    Byte A;
+    
 
     // PSR 
     Byte  A, X, Y  ; // GP registers
@@ -53,21 +58,42 @@ struct CPU
      Byte Data =  mem[PC];
      PC++;
      Cycles--;
+     
     }
+    // register immediate mode opcode
+    static const Byte INS_LDA_IM = 0xA9;
 
     // instruction opcode and the data(operand)
     void Execute(u32 Cycles,Mem &mem){
        while(Cycles > 0){
       // fetch the ins from pointed by PC
        Byte Ins =  Fetch(Cycles , mem);
+       
+       switch (Ins)
+       {
+        case INS_LDA_IM:
+        
+        {
+          // value (LDA) operation 
+          Byte Value = Fetch(Cycles , mem);
+          A = Value;
+          Z = (A == 0);
+          N = (A & 0b10000000 > 0 );
+        }
+          default : break;
+       }
        }
     }
 };
 
 
 int main(){
+
   Mem mem;
   CPU cpu;
   cpu.Reset(mem);
+  // manual load
+  mem[0xFFFC] = CPU::INS_LDA_IM;
+  mem[0xFFFD] = 0x42;
   cpu.Execute(2 , mem);
 }
