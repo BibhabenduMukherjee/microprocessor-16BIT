@@ -53,7 +53,7 @@ The subsequent bytes are stored at higher memory addresses, with the most signif
 
 ## Reading the Word 
 
-<img src="https://cdn.sanity.io/images/l2tpt56d/production/8b60573be7150a41ae01edf00b49ea9d8a46ea3e-1590x758.png" alt="Alt Text" width="300" height="200">
+<img src="https://cdn.sanity.io/images/l2tpt56d/production/8b60573be7150a41ae01edf00b49ea9d8a46ea3e-1590x758.png" alt="Alt Text" width="600" height="500">
 
 ## Authors
 
