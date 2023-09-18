@@ -34,6 +34,27 @@ Process Status Register
 ```
 we are able to visualize the main stack and loaded inline instruction
 
+
+## Just like INS_LDA_IM mainly we have focused on 5-6 addressing mode
+INS_LDA_IM , INS_LDA_ZP  (3 cycles), INS_LDA_ZPX (4 cycles)
+
+
+## Format of Byte Ordering
+
+   ### Big-Endian (BE):
+
+In big-endian systems, the most significant byte (MSB) is stored at the lowest memory address.
+The subsequent bytes are stored at higher memory addresses, with the least significant byte (LSB) at the highest address.
+   ### Little-Endian (LE):
+
+In little-endian systems, the least significant byte (LSB) is stored at the lowest memory address.
+The subsequent bytes are stored at higher memory addresses, with the most significant byte (MSB) at the highest address. 
+
+
+## Reading the Word 
+
+<img src="https://cdn.sanity.io/images/l2tpt56d/production/8b60573be7150a41ae01edf00b49ea9d8a46ea3e-1590x758.png" alt="Alt Text" width="300" height="200">
+
 ## Authors
 
 - [@Bibhabendu Mukherjee](https://github.com/BibhabenduMukherjee)
