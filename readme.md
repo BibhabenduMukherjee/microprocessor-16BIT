@@ -55,6 +55,11 @@ The subsequent bytes are stored at higher memory addresses, with the most signif
 
 <img src="https://cdn.sanity.io/images/l2tpt56d/production/83a8c8b7f77f4c4b7a358e27fa1f5f6458dfbff2-2074x1100.png" alt="Alt Text">
 
+## Next Diagram Demonstrate Mem structure
+
+
+<img src="https://cdn.sanity.io/images/l2tpt56d/production/ebe629d002b8d509f9c4e1ab11ac52d2e96f1f7a-2746x998.png" alt="Alt Text">
+
 ## Authors
 
 - [@Bibhabendu Mukherjee](https://github.com/BibhabenduMukherjee)
