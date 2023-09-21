@@ -149,6 +149,8 @@ struct CPU
         Word SubAddrs = FetchWord(Cycles, mem);
         // push the return pointer
         mem.WriteWord(Cycles, PC - 1, SP);
+        PC = SubAddrs;
+        Cycles--;
       }
 
       default:
@@ -165,8 +167,10 @@ int main()
   CPU cpu;
   cpu.Reset(mem);
   // manual load
-  mem[0xFFFC] = CPU::INS_LDA_ZP;
+  mem[0xFFFC] = CPU::INS_JSR;
   mem[0xFFFD] = 0x42;
-  mem[0x0042] = 0x84;
-  cpu.Execute(3, mem);
+  mem[0xFFFE] = 0x42;
+  mem[0x4242] = CPU::INS_LDA_IM;
+  mem[0x4243] = 0x84;
+  cpu.Execute(9, mem);
 }

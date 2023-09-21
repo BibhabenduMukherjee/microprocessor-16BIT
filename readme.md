@@ -51,9 +51,9 @@ In little-endian systems, the least significant byte (LSB) is stored at the lowe
 The subsequent bytes are stored at higher memory addresses, with the most significant byte (MSB) at the highest address. 
 
 
-## Reading the Word 
+## Diagram Of CPU and Mem Struct
 
-<img src="https://cdn.sanity.io/images/l2tpt56d/production/8b60573be7150a41ae01edf00b49ea9d8a46ea3e-1590x758.png" alt="Alt Text" width="700" height="500">
+<img src="https://cdn.sanity.io/images/l2tpt56d/production/83a8c8b7f77f4c4b7a358e27fa1f5f6458dfbff2-2074x1100.png" alt="Alt Text">
 
 ## Authors
 
